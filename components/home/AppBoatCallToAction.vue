@@ -1,0 +1,87 @@
+<template>
+  <div class="overflow-hidden bg-white py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
+      <div
+        class="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8"
+      >
+        <div class="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
+          <h2
+            class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl"
+          >
+            Discover Madeira from the Water
+          </h2>
+          <p class="mt-6 text-xl/8 text-gray-600">
+            Experience the beauty of Madeira’s coastline aboard our charming
+            Dufour 29 sailboat. Guests staying with Nifty Rentals Madeira can
+            enjoy exclusive discounts for an unforgettable maritime adventure.
+          </p>
+          <p class="mt-6 text-base/7 text-gray-600">
+            Set sail to explore hidden coves, spot dolphins in their natural
+            habitat, and soak in the stunning views of the Atlantic Ocean. Our
+            well-maintained Dufour 29 offers a unique and memorable way to
+            enhance your stay.
+          </p>
+          <div class="mt-10 flex">
+            <a
+              href="#"
+              class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >Learn More About Nifty Charter
+              <span aria-hidden="true">&rarr;</span></a
+            >
+          </div>
+        </div>
+        <div
+          class="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents"
+        >
+          <div
+            class="w-0 flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end"
+          >
+            <img
+              :src="Boat1"
+              alt=""
+              class="aspect-[7/5] w-[37rem] max-w-none rounded-2xl bg-gray-50 object-cover"
+            />
+          </div>
+          <div
+            class="contents lg:col-span-2 lg:col-end-2 lg:ml-auto lg:flex lg:w-[37rem] lg:items-start lg:justify-end lg:gap-x-8"
+          >
+            <div
+              class="order-first flex w-64 flex-none justify-end self-end lg:w-auto"
+            >
+              <img
+                :src="Boat2"
+                alt=""
+                class="aspect-[4/3] w-[24rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover"
+              />
+            </div>
+            <div class="flex w-96 flex-auto justify-end lg:w-auto lg:flex-none">
+              <img
+                :src="Boat3"
+                alt=""
+                class="aspect-[7/5] w-[37rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover"
+              />
+            </div>
+            <div
+              class="hidden sm:block sm:w-0 sm:flex-auto lg:w-auto lg:flex-none"
+            >
+              <img
+                :src="Dolphins"
+                alt=""
+                class="aspect-[4/3] w-[24rem] max-w-none rounded-2xl bg-gray-50 object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script lang="ts" setup>
+import Boat1 from "~/assets/images/boat-1.jpg";
+import Boat2 from "~/assets/images/boat-2.jpg";
+import Boat3 from "~/assets/images/boat-3.jpg";
+import Dolphins from "~/assets/images/dolphins.jpg";
+</script>
+
+<style></style>
