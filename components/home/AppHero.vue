@@ -34,12 +34,9 @@
             <p
               class="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8"
             >
-              Nifty Rentals Madeira offers
-              <strong>expert property management</strong> for
-              <strong>luxury villas</strong> and apartments. From
-              <strong>guest communication</strong> to <strong>cleaning</strong>,
-              we handle it all for a
-              <strong>seamless rental experience</strong>.
+              Nifty Rentals Madeira offers expert property management for luxury
+              villas and apartments. From guest communication to cleaning, we
+              handle it all for a seamless rental experience.
             </p>
             <div class="mt-10 flex items-center gap-x-6">
               <a
