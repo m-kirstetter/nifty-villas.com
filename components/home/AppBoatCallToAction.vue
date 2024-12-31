@@ -11,15 +11,18 @@
             Discover Madeira from the Water
           </h2>
           <p class="mt-6 text-xl/8 text-gray-600">
-            Experience the beauty of Madeira’s coastline aboard our charming
-            Dufour 29 sailboat. Guests staying with Nifty Rentals Madeira can
-            enjoy exclusive discounts for an unforgettable maritime adventure.
+            By choosing Nifty Villas, you're not just ensuring top-tier property
+            management; you're also unlocking added value for your guests. With
+            exclusive access to our charming Dufour 29 sailboat, we provide
+            holidaymakers with discounted boat tours, creating unforgettable
+            experiences and setting your property apart.
           </p>
           <p class="mt-6 text-base/7 text-gray-600">
-            Set sail to explore hidden coves, spot dolphins in their natural
-            habitat, and soak in the stunning views of the Atlantic Ocean. Our
-            well-maintained Dufour 29 offers a unique and memorable way to
-            enhance your stay.
+            Guests can set sail to explore hidden coves, spot dolphins in their
+            natural habitat, and marvel at Madeira's breathtaking coastline.
+            This unique offering not only enhances guest satisfaction but also
+            boosts your property's appeal, leading to better returns and higher
+            occupancy rates.
           </p>
           <div class="mt-10 flex">
             <a

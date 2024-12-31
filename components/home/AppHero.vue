@@ -11,9 +11,9 @@
           <polygon points="0,0 90,0 50,100 0,100" />
         </svg>
 
-        <div class="relative px-6 py-32 sm:py-40 lg:px-8 lg:py-56 lg:pr-0">
+        <div class="relative px-6 py-32 sm:py-40 lg:px-8 lg:py-36 lg:pr-0">
           <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
-            <div class="hidden sm:mb-10 sm:flex">
+            <!-- <div class="hidden sm:mb-10 sm:flex">
               <div
                 class="relative rounded-full px-3 py-1 text-sm/6 text-gray-500 ring-1 ring-gray-900/10 hover:ring-gray-900/20"
               >
@@ -25,7 +25,7 @@
                   <span aria-hidden="true">&rarr;</span></a
                 >
               </div>
-            </div>
+            </div> -->
             <h1
               class="text-pretty text-5xl font-semibold tracking-tight text-gray-900 sm:text-5xl"
             >
