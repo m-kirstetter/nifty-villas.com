@@ -38,6 +38,7 @@ const navigation = {
   main: [
     { name: "Services", href: "#" },
     { name: "About Us", href: "#" },
+    { name: "Boat Tours", href: "#" },
     { name: "FAQs", href: "#" },
     { name: "Contact", href: "#" },
   ],
