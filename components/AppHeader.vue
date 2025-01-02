@@ -26,6 +26,12 @@
               class="text-sm/6 font-semibold text-gray-900"
               >{{ item.name }}</a
             >
+            <button
+              class="text-sm/6 font-semibold text-gray-900"
+              @click="isDrawerOpen = true"
+            >
+              Contact
+            </button>
           </div>
         </nav>
       </div>
@@ -61,8 +67,14 @@
                 :key="item.name"
                 :href="item.href"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-                >{{ item.name }}</a
               >
+                {{ item.name }}
+              </a>
+              <button
+                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+              >
+                Contact
+              </button>
             </div>
           </div>
         </div>
@@ -72,10 +84,11 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
 import { Dialog, DialogPanel } from "@headlessui/vue";
 import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
 import Logo from "~/assets/images/nifty-rentals-logo.png";
+
+const { isDrawerOpen } = useUiState();
 
 const navigation = [
   { name: "Home", href: "#" },
@@ -83,7 +96,6 @@ const navigation = [
   { name: "About Us", href: "#" },
   { name: "Boat Tours", href: "#" },
   { name: "FAQs", href: "#" },
-  { name: "Contact", href: "#" },
 ];
 
 const mobileMenuOpen = ref(false);
