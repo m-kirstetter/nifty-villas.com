@@ -1,6 +1,7 @@
 <template>
   <form
     name="contact"
+    ref="contactForm"
     class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
     netlify
     method="POST"
@@ -40,6 +41,8 @@
           </div>
           <div class="sm:col-span-2">
             <input
+              :disabled="sending"
+              v-model="name"
               type="text"
               name="name"
               id="name"
@@ -63,6 +66,8 @@
           </div>
           <div class="sm:col-span-2">
             <input
+              :disabled="sending"
+              v-model="email"
               type="text"
               name="email"
               id="email"
@@ -86,6 +91,8 @@
           </div>
           <div class="sm:col-span-2">
             <textarea
+              :disabled="sending"
+              v-model="message"
               rows="10"
               name="message"
               id="message"
@@ -108,7 +115,36 @@
           Cancel
         </button>
         <button
+          v-if="sending"
+          disabled
+          class="inline-flex justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        >
+          <svg
+            class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              class="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              stroke-width="4"
+            ></circle>
+            <path
+              class="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+            ></path>
+          </svg>
+          Sending...
+        </button>
+        <button
+          v-else
           type="submit"
+          @click.prevent="submitForm"
           class="inline-flex justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
           Send Message
@@ -119,7 +155,49 @@
 </template>
 
 <script lang="ts" setup>
+import { DialogTitle } from "@headlessui/vue";
+
+type FormFeedbackType = "incomplete" | "consent" | "invalid" | "success" | null;
+
 const { isDrawerOpen, drawerContent } = useUiState();
+const sending = ref(false);
+const contactForm = ref<HTMLFormElement>();
+
+const name = ref("");
+const email = ref("");
+const message = ref("");
+
+const formFeedback: Ref<FormFeedbackType> = ref(null);
+const success = ref(true);
+
+const submitForm = () => {
+  sending.value = true;
+  formFeedback.value = null;
+
+  if (!name.value.trim() || !email.value.trim()) {
+    formFeedback.value = "incomplete";
+    sending.value = false;
+    return;
+  }
+
+  const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+  if (email.value && !regex.test(email.value)) {
+    formFeedback.value = "invalid";
+    success.value = false;
+    sending.value = false;
+    return;
+  }
+
+  const formData = new FormData(contactForm.value);
+
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString(),
+  })
+    .then(() => console.log("Form successfully submitted"))
+    .catch((error) => alert(error));
+};
 </script>
 
 <style></style>
