@@ -190,6 +190,7 @@ const submitForm = () => {
   }
 
   let formData = new FormData();
+  formData.append("form-name", "contact");
   formData.append("name", name.value);
   formData.append("email", email.value);
   formData.append("message", message.value);
