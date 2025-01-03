@@ -6,7 +6,7 @@
     netlify
     method="POST"
   >
-    <input type="hidden" name="form-name" value="contactForm" />
+    <input type="hidden" name="form-name" value="contact" />
     <div class="flex-1">
       <!-- Header -->
       <FormsAppFormDrawerHeader>
