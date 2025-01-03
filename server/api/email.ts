@@ -14,28 +14,39 @@ export default defineEventHandler(async (event) => {
   const mg = mailgun.client({
     username: "api",
     key: process.env.MAILGUN_API_KEY,
+    url: "https://api.eu.mailgun.net",
   });
 
   const data = {
-    from: "Manuel Kirstetter <mailgun@nifty-villas.com>",
+    from: "Nifty Villas Website <mailgun@mail.nifty-villas.com>",
     to: ["manu@actichains.com"],
     subject: "Contact from nifty-villas.com!",
     text: `Hey Team! We've got a contact message from nifty-villas.com.`,
   };
 
-  mg.messages
-    .create("sandbox-123.mailgun.org", {
-      from: "Excited User <mailgun@nifty-villas.com>",
-      to: ["test@example.com"],
-      subject: "Hello",
-      text: "Testing some Mailgun awesomeness!",
-      html: "<h1>Testing some Mailgun awesomeness!</h1>",
-    })
-    .then((msg) => console.log({ msg })) // logs response data
-    .catch((err) => console.log({ err }));
+  try {
+    const response = await mg.messages.create("mail.nifty-villas.com", data);
 
-  // await mg.messages
-  //   .create(process.env.MAILGUN_DOMAIN, data)
-  //   .then((msg) => console.log({ msg })) // logs response data
-  //   .catch((err) => console.log({ err }));
+    return {
+      success: true,
+      message: "Email sent successfully!",
+      emailResponse: { id: response.id, message: response.message },
+    };
+  } catch (error) {
+    console.error("Mailgun error:", error);
+
+    if (error instanceof Error) {
+      return {
+        success: false,
+        message: "Failed to send email.",
+        error: { message: error.message },
+      };
+    } else {
+      return {
+        success: false,
+        message: "Failed to send email.",
+        error: { message: "An unknown error occurred" },
+      };
+    }
+  }
 });
