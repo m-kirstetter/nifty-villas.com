@@ -171,7 +171,7 @@ const message = ref("");
 const formFeedback: Ref<FormFeedbackType> = ref(null);
 const success = ref(true);
 
-const submitForm = () => {
+const submitForm = async () => {
   sending.value = true;
   formFeedback.value = null;
 
@@ -189,19 +189,18 @@ const submitForm = () => {
     return;
   }
 
-  let formData = new FormData();
-  formData.append("form-name", "contact");
-  formData.append("name", name.value);
-  formData.append("email", email.value);
-  formData.append("message", message.value);
-
-  fetch("/", {
+  await useFetch("/api/email", {
     method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: formData,
+    body: {
+      name: name.value,
+      email: email.value,
+      message: message.value,
+    },
   })
-    .then(() => console.log("Form successfully submitted"))
+    .then((res) => console.log({ res }))
     .catch((error) => alert(error));
+
+  sending.value = true;
 };
 </script>
 
