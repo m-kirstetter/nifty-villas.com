@@ -189,12 +189,15 @@ const submitForm = () => {
     return;
   }
 
-  const formData = new FormData(contactForm.value);
+  let formData = new FormData();
+  formData.append("name", name.value);
+  formData.append("email", email.value);
+  formData.append("message", message.value);
 
   fetch("/", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(formData).toString(),
+    body: formData,
   })
     .then(() => console.log("Form successfully submitted"))
     .catch((error) => alert(error));
